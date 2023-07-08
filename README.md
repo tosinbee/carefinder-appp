@@ -1,6 +1,6 @@
 # CareFinder App Documentation
 
-The Hospital Finder App is a web application that allows users to find hospitals near their location, create hospital entries, export hospital data, and share it with others. It provides user authentication using Firebase and supports markdown syntax for content creation. The app is built with React, TypeScript, and Firebase.
+The CareFinder App is a web application that allows users to find hospitals near their location, create hospital entries, export hospital data, and share it with others. It provides user authentication using Firebase and supports markdown syntax for content creation. The app is built with React, TypeScript, and Firebase.
 
 ## Table of Contents
 1. Introduction
