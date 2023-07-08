@@ -18,7 +18,7 @@ The Hospital Finder App is a web application that allows users to find hospitals
 13. Conclusion
 
 ## 1. Introduction
-The Hospital Finder App is designed to help users easily find hospitals in their vicinity and access important information about each hospital. It provides a user-friendly interface for searching hospitals, creating hospital entries, and exporting hospital data. The app also supports user authentication to ensure secure access to the features.
+The CareFinder App is designed to help users easily find hospitals in their vicinity and access important information about each hospital. It provides a user-friendly interface for searching hospitals, creating hospital entries, and exporting hospital data. The app also supports user authentication to ensure secure access to the features.
 
 ## 2. Prerequisites
 Before getting started with the Hospital Finder App, ensure that you have the following prerequisites:
@@ -27,24 +27,14 @@ Before getting started with the Hospital Finder App, ensure that you have the fo
 
 ## 3. Installation
 To install and set up the Hospital Finder App, follow these steps:
-1. Clone the repository from GitHub: `git clone <repository_url>`
-2. Navigate to the project directory: `cd hospital-finder-app`
-3. Install the project dependencies: `npm install`
+1. Navigate to the project directory: `cd carefinder-app`
+2. Install the project dependencies: `npm install`
 
 ## 4. Configuration
-To configure the Hospital Finder App, you need to set up the Firebase project and provide the necessary configuration values.
+To configure the CareFinder App, you need to set up the Firebase project and provide the necessary configuration values.
 1. Create a Firebase project and enable Firebase Authentication and Firestore.
 2. Obtain the Firebase configuration values (apiKey, authDomain, projectId, etc.).
-3. Create a `.env` file in the project root directory.
-4. Add the following environment variables to the `.env` file and replace the values with your Firebase configuration:
-```
-REACT_APP_FIREBASE_API_KEY=<your_firebase_api_key>
-REACT_APP_FIREBASE_AUTH_DOMAIN=<your_firebase_auth_domain>
-REACT_APP_FIREBASE_PROJECT_ID=<your_firebase_project_id>
-REACT_APP_FIREBASE_STORAGE_BUCKET=<your_firebase_storage_bucket>
-REACT_APP_FIREBASE_MESSAGING_SENDER_ID=<your_firebase_messaging_sender_id>
-REACT_APP_FIREBASE_APP_ID=<your_firebase_app_id>
-```
+
 
 ## 5. Folder Structure
 The folder structure of the Hospital Finder App is as follows:
@@ -110,7 +100,7 @@ The export and sharing functionality is implemented in the `Export` component.
 
 
 ## 11. Testing
-The Hospital Finder App includes unit tests and component tests to ensure the quality and reliability of the code. The tests cover critical components and functionalities of the app.
+The CareFinder App includes unit tests and component tests to ensure the quality and reliability of the code. The tests cover critical components and functionalities of the app.
 
 To run the tests, use the following command:
 ```
@@ -127,5 +117,5 @@ npm run build
 3. Deploy the generated build files to a web server or a hosting service of your choice.
 
 ## 13. Conclusion
-The Hospital Finder App is a comprehensive solution for finding hospitals, managing hospital data, exporting data, and sharing it with others. The detailed documentation provided here gives you an overview of the project structure, dependencies, Firebase setup, authentication, hospital data management, export and sharing features, testing, and deployment.
+The CareFinder App is a comprehensive solution for finding hospitals, managing hospital data, exporting data, and sharing it with others. The detailed documentation provided here gives you an overview of the project structure, dependencies, Firebase setup, authentication, hospital data management, export and sharing features, testing, and deployment.
 
