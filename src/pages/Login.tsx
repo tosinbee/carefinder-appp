@@ -23,7 +23,7 @@ const Login = () => {
       console.log(user);
       setLoading(false);
       toast.success('Successfully logged in');
-      navigate('/checkout');
+      navigate('/hospital');
     } catch (error: any) {
       setLoading(false);
       toast.error(error.message);
