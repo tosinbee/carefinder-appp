@@ -96,7 +96,10 @@ const Header = () => {
             <div className="logo">
               {/* <img className="logo-img" src={logo} alt="logo" /> */}
               <div>
-                <h1>CareFinder</h1>
+
+                <h1>
+                  <span><i class="ri-hospital-fill"></i></span>
+                  CareFinder</h1>
               </div>
             </div>
 

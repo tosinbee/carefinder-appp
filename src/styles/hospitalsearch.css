@@ -7,6 +7,24 @@
   color: #fff;
 }
 
+.export__list button{
+  margin-top: -56px;
+  margin-left: 600px;
+  border: none;
+  width: 170px;
+  border: 1px solid var(--primary-color);
+  padding: 14px 0px;
+  cursor: pointer;
+  border-radius: 5px;
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.export__list button:hover{
+  background-color: #fff;
+  color: var(--primary-color);
+}
+
 .filter__widget select:focus{
   outline: none !important;
 }
@@ -53,6 +71,12 @@
   .search__box{
     width: 80%;
     margin-left: 50px;
+  }
+
+  .export__list button {
+    margin-top: 10px;
+    margin-left: 120px;
+    width: 60%;
   }
 }
 

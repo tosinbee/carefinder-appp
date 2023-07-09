@@ -2,19 +2,37 @@ import React, { useState, useEffect } from "react";
 import CommonSection from "../components/UI/CommonSection";
 import Helmet from "../components/Helmet/Helmet";
 import { Container, Row, Col } from "reactstrap";
-import "../styles/shop.css";
-
+import "../styles/hospitalsearch.css";
+import ReactMarkdown from "react-markdown";
 import hospitalInfo from "../assets/data/hospitalInfo";
 import HospitalList from "../components/UI/HospitalList";
+import * as XLSX from "xlsx";
+
+
 
 const HospitalSearch = () => {
   const [hospitalData, setHospitalData] = useState<Array<any>>([]);
   const [filteredData, setFilteredData] = useState<Array<any>>([]);
+  const [markdown, setMarkdown] = useState<string>("");
+  const [newEntry, setNewEntry] = useState({
+    id: "",
+    hospitalName: "",
+    address: "",
+    location: "",
+    shortDesc: "",
+    description: "",
+    reviews: [],
+    avgRating: 0,
+  });
+
+
 
   useEffect(() => {
     setHospitalData([...hospitalInfo]);
     setFilteredData([...hospitalInfo]);
-  }, []);
+  }, 
+  
+  []);
 
   const handleFilter = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const filterValue = e.target.value;
@@ -22,7 +40,9 @@ const HospitalSearch = () => {
     if (filterValue === "all") {
       setFilteredData(hospitalData);
     } else {
-      const filteredLists = hospitalData.filter((item) => item.location === filterValue);
+      const filteredLists = hospitalData.filter(
+        (item) => item.location === filterValue
+      );
       setFilteredData(filteredLists);
     }
   };
@@ -37,9 +57,79 @@ const HospitalSearch = () => {
     setFilteredData(searchedProducts);
   };
 
+  const handleExportClick = () => {
+    exportHospitals();
+    
+  };
+  
+  const exportHospitals = () => {
+    const formattedData = filteredData.map((item) => ({
+      ID: item.id,
+      HospitalName: item.hospitalName,
+      Address: item.address,
+      Location: item.location,
+    }));
+
+    const worksheet = XLSX.utils.json_to_sheet(formattedData);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Hospitals");
+  
+    XLSX.writeFile(workbook, "hospitals.xlsx");
+  };
+
+  
+  const handleMarkdownChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setMarkdown(e.target.value);
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    // Process the markdown input and convert it to a new entry
+    const parsedEntry = parseMarkdownInput(markdown);
+
+    // Update the hospital list with the new entry
+    const updatedHospitalData = [...hospitalData, parsedEntry];
+    setHospitalData(updatedHospitalData);
+    setFilteredData(updatedHospitalData);
+    setNewEntry({
+      id: "",
+      hospitalName: "",
+      address: "",
+      location: "",
+      shortDesc: "",
+      description: "",
+      reviews: [],
+      avgRating: 0,
+    });
+    // Clear the markdown input field
+    setMarkdown("");
+  };
+
+  const parseMarkdownInput = (input: string) => {
+    
+    const [hospitalName, address, location] = input.split("\n");
+
+    const newEntry = {
+      id: "", // Generate a unique ID for the new entry
+      hospitalName: "", // Extract the hospital name from the input
+      address: "", // Extract the address from the input
+      location: "", // Extract the location from the input
+      // Add other properties as needed
+    };
+
+    return newEntry;
+  };
+
+  const generateUniqueId = () => {
+    const timestamp = Date.now();
+    const randomSuffix = Math.floor(Math.random() * 10000);
+    return `entry-${timestamp}-${randomSuffix}`;
+  };
+
   return (
-    <Helmet title="Shop">
-      <CommonSection title="Products" />
+    <Helmet title="Hospital">
+      <CommonSection title="Hospital List" />
       <section>
         <Container>
           <Row>
@@ -115,8 +205,48 @@ const HospitalSearch = () => {
           </Row>
         </Container>
       </section>
+
+      <section className="export__list">
+        <button onClick={handleExportClick}>Export Hospital List</button>
+      </section>
+
+      {/* <section className="markdown-editor">
+      <form onSubmit={handleSubmit}>
+        <textarea value={markdown} onChange={handleMarkdownChange} />
+        <button type="submit">Add Entry</button>
+      </form>
+      <ReactMarkdown>{markdown}</ReactMarkdown>
+    </section> */}
     </Helmet>
   );
 };
 
 export default HospitalSearch;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

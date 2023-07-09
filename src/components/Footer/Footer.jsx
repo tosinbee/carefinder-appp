@@ -16,40 +16,19 @@ const Footer = () => {
           <div className="logo">
             
              <div>
-              <h1 className='text-white'>CareFinder</h1>
+              <h1 className='text-white'>
+                <span><i class="ri-hospital-fill"></i></span>
+                CareFinder</h1>
              </div>
             </div>
 
             <p className="footer__text mt-4 ">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae voluptates similique asperiores, ducimus dolorum eveniet suscipit! Officia, voluptates quidem? Quidem.
+            Discover nearby hospitals, contribute data, and share information effortlessly with the CareFinder App.
+            Built with React, TypeScript, and Firebase, finding hospitals has never been easier.
              </p>
           </Col>
 
-          <Col lg='3' md='3' className='mb-4'>
-           <div className="footer_quick-links">
-            <h4 className="quick__links-title">
-              Top Categories
-            </h4>
-            <ListGroup className='mb-3'>
-              <ListGroupItem className='ps-0 border-0'>
-                <Link to='#'>Mobile Phones</Link>
-              </ListGroupItem>
-
-              <ListGroupItem className='ps-0 border-0'>
-                <Link to='#'>Modern Sofa</Link>
-              </ListGroupItem>
-
-              <ListGroupItem className='ps-0 border-0'>
-                <Link to='#'>Arm Chair</Link>
-              </ListGroupItem>
-
-              <ListGroupItem className='ps-0 border-0'>
-                <Link to='#'>Smart Watches</Link>
-              </ListGroupItem>
-            </ListGroup>
-           </div>
-           </Col>
-
+         
            <Col lg='2' md='3' className='mb-4'>
            <div className="footer_quick-links">
             <h4 className="quick__links-title">
@@ -57,11 +36,11 @@ const Footer = () => {
             </h4>
             <ListGroup className='mb-3'>
               <ListGroupItem className='ps-0 border-0'>
-                <Link to='/shop'>Shop</Link>
+                <Link to='/hospital'>Hospital List</Link>
               </ListGroupItem>
 
               <ListGroupItem className='ps-0 border-0'>
-                <Link to='/cart'>Cart</Link>
+                <Link to='/signup'>Sign Up</Link>
               </ListGroupItem>
 
               <ListGroupItem className='ps-0 border-0'>
@@ -93,7 +72,7 @@ const Footer = () => {
 
               <ListGroupItem className='ps-0 border-0 d-flex align-items-center gap-2'>
               <span><i class="ri-mail-line"></i></span>
-                <p>mymart@gmail.com</p>
+                <p>carefinderorg@gmail.com</p>
               </ListGroupItem>
 
             </ListGroup>
